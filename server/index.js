@@ -8,7 +8,13 @@ const contactRoutes = require("./routes/contactRoutes");
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://crudwithauth0client.vercel.app", "*"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 
 // Routes
